@@ -8,6 +8,7 @@ public class Avaliacao{
     private Disciplina disciplina;
     private Professor professor;
     private double media;
+    private SituacaoAluno situacaoAluno;
 
     public Avaliacao(double nota1, double nota2, Aluno aluno, Disciplina disciplina, Professor professor) {
         this.nota1 = nota1;
@@ -58,14 +59,37 @@ public class Avaliacao{
         this.media = media;
     }
 
+    public SituacaoAluno getSituacaoAluno() {
+        return situacaoAluno;
+    }
+
+    public void setSituacaoAluno(SituacaoAluno situacaoAluno) {
+        this.situacaoAluno = situacaoAluno;
+    }
+
     public double mediaCalculo (){
         media = (this.nota1 + this.nota2) / 2.0;
         return media;
     }
 
+    public void situacao(double media){
+        if(mediaCalculo() >= 6.0){
+            situacaoAluno = SituacaoAluno.APROVADO;
+        }
+        else if(mediaCalculo() < 4.0){
+            situacaoAluno = SituacaoAluno.REPROVADO;
+        }
+        else {
+            situacaoAluno = SituacaoAluno.RECUPERACAO;
+        }
+    }
+
     @Override
     public String toString() {
-        return "Aluno: " + aluno.getNome() +", ficou com a média: " + String.format("%.2f", mediaCalculo()) + " em " + disciplina.getNome();
+        situacao(mediaCalculo());        
+        return "Aluno: " + aluno.getNome() +", ficou com a média: " + String.format("%.2f", mediaCalculo()) + " em " + disciplina.getNome() + "logo ele esta " + situacaoAluno.getDescricao();
     }
+
+
     
 }
