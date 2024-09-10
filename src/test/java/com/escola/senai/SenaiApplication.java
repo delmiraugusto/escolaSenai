@@ -9,13 +9,13 @@ public class SenaiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SenaiApplication.class, args);
 
-		Pessoa pessoa1 = new Pessoa("Jou a quim", "123.456.789-10");
-		Professor professor1 = new Professor("Arthur", "123.456.987-10", 8000.00);
-		Aluno aluno1 = new Aluno("Delmir", "123.456.789-10");
-		Aluno aluno2 = new Aluno("Delso", "123.456.789-10");
-		Disciplina disciplina1 = new Disciplina("Matematica", "Noite", professor1);
-		Avaliacao avaliacao1 = new Avaliacao(10, 9.6, aluno1, disciplina1, professor1);
+		// Pessoa pessoa1 = new Pessoa("Jou a quim", "123.456.789-10");
+		// Professor professor1 = new Professor("Arthur", "123.456.987-10", 8000.00);
+		// Aluno aluno1 = new Aluno("Delmir", "123.456.789-10");
+		// Aluno aluno2 = new Aluno("Delso", "123.654.879-20");
+		// Disciplina disciplina1 = new Disciplina("Matematica", "Noite", professor1);
+		// Avaliacao avaliacao1 = new Avaliacao(10, 9.6, aluno1, disciplina1, professor1);
 
-		System.out.println(aluno1.getMatricula());
+		
 	}
 }
