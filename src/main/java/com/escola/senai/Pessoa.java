@@ -7,14 +7,15 @@ public class Pessoa {
     private Endereco endereco;
     
 
-    // Construtores
     public Pessoa(String nome, String cpf, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.endereco = endereco;
     }
 
-    // Getters and Setters
+    public Pessoa(){
+    }
+
     public String getNome() {
         return nome;
     }

@@ -10,7 +10,7 @@ public enum Turno {
     Turno(String turnoAula) {
         this.turnoAula = turnoAula;
     }
-
+    
     public String getTurnoAula() {
         return turnoAula;
     }

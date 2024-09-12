@@ -1,22 +1,18 @@
 package com.escola.senai;
 
-public class Aluno extends Pessoa{
+public class Aluno {
 
-    public static int contadorMatricula = 1;
-    private String matricula;
+    private String nome;
 
-    public Aluno(String nome, String cpf, Endereco endereco) {
-        super(nome, cpf, endereco);
-        this.matricula = (contadorMatricula + ".24/2");
-        contadorMatricula++;
+    public Aluno(){
+
     }
 
-    public String getMatricula() {
-        return matricula;
+    public String getNome(){
+        return nome; 
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setNome(String nome){
+        this.nome = nome;
     }
-
 }
