@@ -9,14 +9,43 @@ public class Menu{
    public static List<Aluno> listaAluno  = new ArrayList<>();
    public static List<Professor> listaProfessor  = new ArrayList<>();
 
+    public static void menu(){
+    int opcao;
+    Scanner sc = new Scanner(System.in);
+
+        do{
+            System.out.println("\n----- MENU -----");
+            System.out.println("1- MENU ALUNO");
+            System.out.println("2- MENU PROFESSOR");
+            System.out.println("0- SAIR\n");
+            System.out.print("Digite uma opção: ");
+            opcao = sc.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    Menu.menuAluno();
+                    break;
+                case 2:
+                    Menu.menuProfessor();
+                    break;
+                case 0:
+                    System.out.println("Programa Finalizado\n");
+                    break;
+                default:
+                System.out.println("Número Inválido\n");
+                    break;
+            }
+        }while(opcao != 0);
+    }
+
     public static void menuAluno(){
-        
+
+        Scanner sc = new Scanner(System.in);
         int opcao;
     
         do {
-            Scanner sc = new Scanner(System.in);
-    
-                System.out.println("\n----- MENU -----");
+
+                System.out.println("\n----- MENU ALUNO-----");
                 System.out.println("O que deseja fazer?");
                 System.out.println("1- Cadastrar novo aluno");
                 System.out.println("2- Atualizar aluno");
@@ -40,7 +69,7 @@ public class Menu{
                         listarAlunos();
                         break;
                     case 0:
-                        System.out.println("Programa Finalizado!\n");
+                        System.out.println("Programa Finalizado\n");
                         break;
                     default:
                         System.out.println("Número Inválido\n");
@@ -127,7 +156,7 @@ public class Menu{
             do {
                 Scanner sc = new Scanner(System.in);
         
-                    System.out.println("\n----- MENU -----");
+                    System.out.println("\n----- MENU PROFESSOR-----");
                     System.out.println("O que deseja fazer?");
                     System.out.println("1- Cadastrar novo Professor");
                     System.out.println("2- Atualizar Professor");
@@ -151,7 +180,7 @@ public class Menu{
                             listarProfessores();
                             break;
                         case 0:
-                            System.out.println("Programa Finalizado!\n");
+                            System.out.println("Programa Finalizado\n");
                             break;
                         default:
                             System.out.println("Número Inválido\n");

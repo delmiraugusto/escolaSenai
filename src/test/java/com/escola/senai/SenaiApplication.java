@@ -9,11 +9,9 @@ public class SenaiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SenaiApplication.class, args);
 
+
+		Menu.menu();
 		
-
-
-		Menu.menuAluno();
-		Menu.menuProfessor();
 
 
 		// Endereco endereco1 = new Endereco("Rua General Rondon", 320, "25620-343", "A340");
