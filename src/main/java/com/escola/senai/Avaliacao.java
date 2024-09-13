@@ -4,13 +4,13 @@ public class Avaliacao{
 
     private double nota1;
     private double nota2;
-    private Alunos aluno;
+    private Aluno aluno;
     private Disciplina disciplina;
     private Professor professor;
     private double media;
     private SituacaoAluno situacaoAluno;
 
-    public Avaliacao(double nota1, double nota2, Alunos aluno, Disciplina disciplina, Professor professor) {
+    public Avaliacao(double nota1, double nota2, Aluno aluno, Disciplina disciplina, Professor professor) {
         this.nota1 = nota1;
         this.nota2 = nota2;
         this.aluno = aluno;
@@ -30,10 +30,10 @@ public class Avaliacao{
     public void setNota2(double nota2) {
         this.nota2 = nota2;
     }
-    public Alunos getAluno() {
+    public Aluno getAluno() {
         return aluno;
     }
-    public void setAluno(Alunos aluno) {
+    public void setAluno(Aluno aluno) {
         this.aluno = aluno;
     }
     public Disciplina getDisciplina() {
