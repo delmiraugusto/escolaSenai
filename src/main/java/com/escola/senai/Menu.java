@@ -8,10 +8,10 @@ public class Menu{
 
    public static List<Aluno> listaAluno  = new ArrayList<>();
    public static List<Professor> listaProfessor  = new ArrayList<>();
+   static Scanner sc = new Scanner(System.in);
 
     public static void menu(){
     int opcao;
-    Scanner sc = new Scanner(System.in);
 
         do{
             System.out.println("\n----- MENU -----");
@@ -40,7 +40,6 @@ public class Menu{
 
     public static void menuAluno(){
 
-        Scanner sc = new Scanner(System.in);
         int opcao;
     
         do {
@@ -80,8 +79,8 @@ public class Menu{
     
         public static void cadastrarAluno(){
             System.out.println("	Cadastre o Novo Aluno	");
-            Scanner sc = new Scanner(System.in);
             System.out.print("Nome: ");
+            sc.nextLine();
             String nome = sc.nextLine();
             Aluno aluno = new Aluno();
             aluno.setNome(nome);
@@ -94,7 +93,7 @@ public class Menu{
                 System.out.println("A lista está vazia");
             }else{
                 System.out.print("Nome do Aluno que deseja atualizar: ");
-                Scanner sc = new Scanner(System.in);
+                sc.nextLine();
                 String nomeAtualizar = sc.nextLine();
                 int contador = 0;
                 for (Aluno aluno : listaAluno) {
@@ -116,10 +115,10 @@ public class Menu{
     
         public static void removerAluno(){
             if(listaAluno.isEmpty()){
-                System.out.println("Lista de Alunos está Vazia");
+                System.out.println("Não há aluno para remover");
             }else{
                 System.out.print("Nome do Aluno que deseja remover: ");
-                Scanner sc = new Scanner(System.in);
+                sc.nextLine();
                 String remover = sc.nextLine();
                 int contador = 0;
                 for (int i = 0; i < listaAluno.size(); i++) {
@@ -150,11 +149,9 @@ public class Menu{
         }
 
         public static void menuProfessor(){
-        
             int opcao;
         
             do {
-                Scanner sc = new Scanner(System.in);
         
                     System.out.println("\n----- MENU PROFESSOR-----");
                     System.out.println("O que deseja fazer?");
@@ -191,8 +188,8 @@ public class Menu{
         
             public static void cadastrarProfessor(){
                 System.out.println("	Cadastre o Novo Professor	");
-                Scanner sc = new Scanner(System.in);
                 System.out.print("Nome: ");
+                sc.nextLine();
                 String nome = sc.nextLine();
                 Professor professor = new Professor();
                 professor.setNome(nome);
@@ -206,7 +203,7 @@ public class Menu{
                 }else{
                     System.out.println("	Atualizar o Professor   ");
                     System.out.print("Professor do Aluno que deseja atualizar: ");
-                    Scanner sc = new Scanner(System.in);
+                    sc.nextLine();
                     String nomeAtualizar = sc.nextLine();
                     int contador = 0;
                     for (Professor professor : listaProfessor) {
@@ -231,7 +228,7 @@ public class Menu{
                     System.out.println("Não há professor para remover");
                 }else{
                     System.out.print("Nome do Professor que deseja remover: ");
-                    Scanner sc = new Scanner(System.in);
+                    sc.nextLine();
                     String remover = sc.nextLine();
                     int contador = 0;
                     for (int i = 0; i < listaProfessor.size(); i++) {
