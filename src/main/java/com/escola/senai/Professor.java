@@ -34,4 +34,12 @@ public class Professor extends Pessoa{
         return matricula;
     }
 
+    public static void setContadorMatricula(int contadorMatricula) {
+        Professor.contadorMatricula = contadorMatricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
 }

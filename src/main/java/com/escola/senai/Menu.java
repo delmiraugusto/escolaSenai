@@ -50,6 +50,7 @@ public class Menu{
                 System.out.println("2- Atualizar aluno");
                 System.out.println("3- Deletar aluno");
                 System.out.println("4- Listar alunos");
+                System.out.println("5- Ver boletim");
                 System.out.println("0- Sair\n");
                 System.out.print("Digite uma opção: ");
                 opcao = sc.nextInt();
@@ -67,6 +68,9 @@ public class Menu{
                     case 4:
                         listarAlunos();
                         break;
+                    case 5:
+                        verBoletim();
+                        break;    
                     case 0:
                         System.out.println("Programa Finalizado\n");
                         break;
@@ -146,6 +150,33 @@ public class Menu{
                     System.out.println((i + 1) + "- " + aluno.getNome()+ " "+ aluno.getMatricula());
                 }
             }
+        }
+
+        public static void verBoletim(){
+            if(listaAluno.isEmpty()){
+                System.out.println("  A Lista está Vazia   ");
+            }else{
+                sc.nextLine();
+                    System.out.println("Digite o seu nome para visualizar o boletim");
+                    String alunoNome = sc.nextLine();
+                    double mediaNota;
+                    for (Aluno aluno : listaAluno) {
+                        if(aluno.getNome().equals(alunoNome)){
+                            mediaNota = (aluno.getNota1() + aluno.getNota2()) / 2;
+                            System.out.println("\n--- Boletim ---");
+                            System.out.println("Nome: " + aluno.getNome());
+                            System.out.println("Matrícula: " + aluno.getMatricula());
+                            System.out.println("Nota 1: " + aluno.getNota1());
+                            System.out.println("Nota 2: " + aluno.getNota2());
+                            System.out.println("Média: " + mediaNota);
+                        }else{
+                            System.out.println("Nome não encontrado");
+                    }
+                }
+
+            }
+
+
         }
 
         public static void menuProfessor(){
