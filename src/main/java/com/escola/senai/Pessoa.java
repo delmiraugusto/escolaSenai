@@ -5,8 +5,9 @@ public class Pessoa {
     private String nome;
     private String cpf;
     private Endereco endereco;
+    private String login;
+    private String senha;
     
-
     public Pessoa(String nome, String cpf, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
@@ -39,4 +40,23 @@ public class Pessoa {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+   
+    
 }

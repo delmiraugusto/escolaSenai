@@ -10,6 +10,7 @@ public class Menu{
    public static List<Professor> listaProfessor  = new ArrayList<>();
    static Scanner sc = new Scanner(System.in);
 
+
     public static void menu(){
     int opcao;
 
@@ -43,7 +44,6 @@ public class Menu{
         int opcao;
     
         do {
-
                 System.out.println("\n----- MENU ALUNO-----");
                 System.out.println("O que deseja fazer?");
                 System.out.println("1- Cadastrar novo aluno");
@@ -125,7 +125,7 @@ public class Menu{
                     if (listaAluno.get(i).getNome().equals(remover)) {
                         listaAluno.remove(i);
                         System.out.println("Aluno removido com sucesso");
-                        contador = 0;
+                        contador = -10;
                     }else{
                         contador++;
                     }
@@ -143,7 +143,7 @@ public class Menu{
                 System.out.println("   Lista dos Alunos   ");
                 for (int i = 0; i < listaAluno.size(); i++) {
                     Aluno aluno = listaAluno.get(i);
-                    System.out.println((i + 1) + "- " + aluno.getNome());
+                    System.out.println((i + 1) + "- " + aluno.getNome()+ " "+ aluno.getMatricula());
                 }
             }
         }
@@ -159,6 +159,8 @@ public class Menu{
                     System.out.println("2- Atualizar Professor");
                     System.out.println("3- Deletar Professor");
                     System.out.println("4- Listar Professor");
+                    System.out.println("5- Lançar Notas");
+                    System.out.println("6- Mostrar Boletim do Aluno");
                     System.out.println("0- Sair\n");
                     System.out.print("Digite uma opção: ");
                     opcao = sc.nextInt();
@@ -175,6 +177,12 @@ public class Menu{
                             break;
                         case 4:
                             listarProfessores();
+                            break;
+                        case 5 : 
+                            lancarNota();
+                            break;
+                        case 6 : 
+                            mostrarboletim();
                             break;
                         case 0:
                             System.out.println("Programa Finalizado\n");
@@ -202,7 +210,7 @@ public class Menu{
                     System.out.println("A lista está vazia");
                 }else{
                     System.out.println("	Atualizar o Professor   ");
-                    System.out.print("Professor do Aluno que deseja atualizar: ");
+                    System.out.print("Nome do Professor que deseja atualizar: ");
                     sc.nextLine();
                     String nomeAtualizar = sc.nextLine();
                     int contador = 0;
@@ -212,7 +220,7 @@ public class Menu{
                             String nome = sc.nextLine();
                             professor.setNome(nome);
                             System.out.println("Professor modificado com sucesso");
-                            contador = 0;
+                            contador = -10;
                         }else{
                             contador++;
                         }
@@ -235,7 +243,7 @@ public class Menu{
                         if (listaProfessor.get(i).getNome().equals(remover)) {
                             listaProfessor.remove(i);
                             System.out.println("Professor removido com sucesso");
-                            contador = 0;
+                            contador = -10;
                         }else{
                             contador++;
                         }
@@ -247,14 +255,60 @@ public class Menu{
             }
         
             public static void listarProfessores(){
-                if(listaAluno.isEmpty()){
+                if(listaProfessor.isEmpty()){
                     System.out.println("   A Lista está Vazia   ");
                 }else{
                     System.out.println("   Lista dos Professores   ");
                     for (int i = 0; i < listaProfessor.size(); i++) {
                         Professor professor = listaProfessor.get(i);
-                        System.out.println((i + 1) + "- " + professor.getNome());
+                        System.out.println((i + 1) + "- " + professor.getNome()+ " "+ professor.getMatricula());
                     }
                 }
             }
+
+            public static void lancarNota(){
+                if(listaAluno.isEmpty()){
+                    System.out.println("Não há nenhuma Aluno na lista");
+                }else{
+                    sc.nextLine();
+                    System.out.println("Digite o Nome do Aluno a ter a nota inserida");
+                    String alunoNome = sc.nextLine();
+                    for (Aluno aluno : listaAluno) {
+                        if(aluno.getNome().equals(alunoNome)){
+                            System.out.println("Nota 1:");
+                            double nota1 = sc.nextDouble();
+                            aluno.setNota1(nota1);
+                            System.out.println("Nota 2:");
+                            double nota2 = sc.nextDouble();
+                            aluno.setNota2(nota2);
+                        }else{
+                            System.out.println("Aluno não encontrado");
+                        }
+                    }
+                }
+            }
+
+            public static void mostrarboletim(){
+                if(listaAluno.isEmpty()){
+                    System.out.println("Não há nenhuma Aluno na lista");
+                }else{
+                    sc.nextLine();
+                    System.out.println("Digite o Nome do Aluno a ter o boletim mostrado");
+                    String alunoNome = sc.nextLine();
+                    double mediaNota;
+                    for (Aluno aluno : listaAluno) {
+                        if(aluno.getNome().equals(alunoNome)){
+                            mediaNota = (aluno.getNota1() + aluno.getNota2()) / 2;
+                            System.out.println("\n--- Boletim ---");
+                            System.out.println("Nome: " + aluno.getNome());
+                            System.out.println("Matrícula: " + aluno.getMatricula());
+                            System.out.println("Nota 1: " + aluno.getNota1());
+                            System.out.println("Nota 2: " + aluno.getNota2());
+                            System.out.println("Média: " + mediaNota);
+                        }else{
+                            System.out.println("Aluno não encontrado");
+                    }
+                }
+            }
+        }
 }
